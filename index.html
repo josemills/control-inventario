@@ -10,7 +10,7 @@
     <h1>Control inventario-caja</h1>
     
     <section>
-        <h2>Agregar Porductos</h2>
+        <h2>Agregar Productos</h2>
         <input type="text" id="nombre" placeholder="Nombre">
         <input type="number" id="cantidad" placeholder="Cantidad">
         <input type="number" id="precio" placeholder="Precio">
@@ -20,6 +20,21 @@
     <section>
         <h2>Inventario</h2>
         <ul id="listaInventario"></ul>
+    </section>
+
+    <section>
+        <h2>Registrar venta</h2>
+        <input type="text" id="productoVenta" placeholder="Producto">
+        <input type="number" id="cantidadVenta" placeholder="Cantidad">
+        <button id="btnVender">Vender</button>
+    </section>
+
+    <section>
+        <h2>Caja</h2>
+        <input type="number" id="cajaInicial" placeholder="Caja Inicial">
+        <button id="btnCaja">Iniciar Día</button>
+
+        <p id="cajaFinal"></p>
     </section>
 
 
