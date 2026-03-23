@@ -21,20 +21,25 @@ btnCaja.addEventListener("click", iniciarCaja);
 
 // Agregar productos
 function agregarProducto() {
-  const nombre = document.getElementById("nombre").value;
-  const cantidad = document.getElementById("cantidad").value;
-  const precio = document.getElementById("precio").value;
+  const nombre = document.getElementById("nombre").value.trim();
+  const cantidad = Number(document.getElementById("cantidad").value);
+  const precio = Number(document.getElementById("precio").value);
 
-  const producto = {
-    nombre,
-    cantidad: Number(cantidad),
-    precio: Number(precio)
-  };
+  if (!nombre || cantidad <= 0 || precio <= 0) {
+    alert("Datos inválidos");
+    return;
+  }
 
-  appData.inventario.push(producto);
+  const existe = appData.inventario.find(p => p.nombre === nombre);
 
-  mostrarInventario();
+  if (existe) {
+    existe.cantidad += cantidad;
+  } else {
+    appData.inventario.push({ nombre, cantidad, precio });
+  }
+
   guardarDatos();
+  mostrarInventario();
 }
 
 // Mostrar en pantalla
@@ -44,9 +49,23 @@ function mostrarInventario() {
 
   appData.inventario.forEach((p, index) => {
     const li = document.createElement("li");
-    li.textContent = `${p.nombre} - ${p.cantidad} - $${p.precio}`;
+
+
+     li.innerHTML = `
+      ${p.nombre} - ${p.cantidad} - $${p.precio}
+      <button onclick="eliminarProducto(${index})">❌</button>
+    `;
+
     lista.appendChild(li);
   });
+}
+
+// Eliminar Producto
+function eliminarProducto(index) {
+  appData.inventario.splice(index, 1);
+
+  guardarDatos();
+  mostrarInventario();
 }
 
 // Guardar en localStorage
@@ -67,6 +86,7 @@ function cargarDatos() {
 
 cargarDatos();
 mostrarCaja();
+mostrarVentas();
 
 // Registrar venta
 
@@ -103,6 +123,7 @@ function registrarVenta() {
 
   guardarDatos();
   mostrarInventario();
+  mostrarVentas();
 }
 
 // Iniciar caja
@@ -121,4 +142,16 @@ function mostrarCaja() {
   const caja = document.getElementById("cajaFinal");
 
   caja.textContent = `Caja final: $${appData.caja.final}`;
+}
+
+// Mostrar ventas (Historial)
+function mostrarVentas() {
+  const lista = document.getElementById("listaVentas");
+  lista.innerHTML = "";
+
+  appData.ventas.forEach(v => {
+    const li = document.createElement("li");
+    li.textContent = `${v.producto} - ${v.cantidad} unidades - $${v.total}`;
+    lista.appendChild(li);
+  });
 }
