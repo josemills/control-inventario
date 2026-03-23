@@ -7,41 +7,45 @@
 </head>
 <body>
 
-    <h1>Control inventario-caja</h1>
-    
-    <section>
-        <h2>Agregar Productos</h2>
-        <input type="text" id="nombre" placeholder="Nombre">
-        <input type="number" id="cantidad" placeholder="Cantidad">
-        <input type="number" id="precio" placeholder="Precio">
-        <button id="btnAgregar">Agregar</button>
-    </section>
+    <div class="inventario-container">
+        <h1>Control inventario-caja</h1>
 
-    <section>
-        <h2>Inventario</h2>
-        <ul id="listaInventario"></ul>
-    </section>
+        <section>
+            <h2>Agregar Productos</h2>
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="number" id="cantidad" placeholder="Cantidad">
+            <input type="number" id="precio" placeholder="Precio">
+            <button id="btnAgregar">Agregar</button>
+        </section>
 
-    <section>
-        <h2>Registrar venta</h2>
-        <input type="text" id="productoVenta" placeholder="Producto">
-        <input type="number" id="cantidadVenta" placeholder="Cantidad">
-        <button id="btnVender">Vender</button>
-    </section>
+        <section>
+            <h2>Inventario</h2>
+            <ul id="listaInventario"></ul>
+        </section>
 
-    <section>
-        <h2>Caja</h2>
-        <input type="number" id="cajaInicial" placeholder="Caja Inicial">
-        <button id="btnCaja">Iniciar Día</button>
+        <section>
+            <h2>Registrar venta</h2>
+            <input type="text" id="productoVenta" placeholder="Producto">
+            <input type="number" id="cantidadVenta" placeholder="Cantidad">
+            <button id="btnVender">Vender</button>
+        </section>
 
-        <p id="cajaFinal"></p>
-    </section>
+        <section>
+            <h2>Caja</h2>
+            <input type="number" id="cajaInicial" placeholder="Caja Inicial">
+            <button id="btnCaja">Iniciar Día</button>
 
-    <section>
-        <h1>Historial de ventas</h1>
-        <ul id="listaVentas"></ul>
-    </section>
+            <p id="cajaFinal"></p>
+        </section>
 
+        <section>
+            <h1>Historial de ventas</h1>
+            <ul id="listaVentas"></ul>
+        </section>
+
+        <button onclick="cerrarDia()">Cerrar Día</button>
+        
+    </div>
 
     <script src="js/app.js"></script>
     

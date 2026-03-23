@@ -115,7 +115,8 @@ function registrarVenta() {
   appData.ventas.push({
     producto: nombre,
     cantidad,
-    total
+    total,
+    fecha: new Date().toLocaleString("es-CL")
   });
 
   // actualizar caja
@@ -151,7 +152,16 @@ function mostrarVentas() {
 
   appData.ventas.forEach(v => {
     const li = document.createElement("li");
-    li.textContent = `${v.producto} - ${v.cantidad} unidades - $${v.total}`;
+    li.textContent = `${v.producto} - ${v.cantidad} - $${v.total} | ${v.fecha}`;
     lista.appendChild(li);
   });
+}
+
+// Cerrar Día
+function cerrarDia() {
+  appData.ventas = [];
+  appData.caja.inicial = appData.caja.final;
+
+  guardarDatos();
+  mostrarVentas();
 }
