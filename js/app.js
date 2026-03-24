@@ -169,3 +169,24 @@ function cerrarDia() {
   guardarDatos();
   mostrarVentas();
 }
+
+// Filtrar productos 
+function filtrarProductos() {
+  const texto = inputBuscar.value.toLowerCase();
+
+  const lista = document.getElementById("listaInventario");
+  lista.innerHTML = "";
+
+  appData.inventario
+    .filter(p => p.nombre.toLowerCase().includes(texto))
+    .forEach((p, index) => {
+      const li = document.createElement("li");
+
+      li.innerHTML = `
+        ${p.nombre} - ${p.cantidad} - $${p.precio}
+        <button onclick="eliminarProducto(${index})">❌</button>
+      `;
+
+      lista.appendChild(li);
+    });
+}
