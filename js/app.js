@@ -19,6 +19,10 @@ const btnCaja = document.getElementById("btnCaja");
 
 btnCaja.addEventListener("click", iniciarCaja);
 
+const inputBuscar = document.getElementById("buscarProducto");
+
+inputBuscar.addEventListener("input", filtrarProductos);
+
 // Agregar productos
 function agregarProducto() {
   const nombre = document.getElementById("nombre").value.trim();
