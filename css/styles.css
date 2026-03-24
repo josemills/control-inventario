@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Martian+Mono:wght@100..800&family=Secular+One&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Trispace:wght@100..800&display=swap');
+
+/* ──────────────────────────────── */
+/* 🎨 ROOT */
+/* ──────────────────────────────── */
+
+:root {
+    --color1: #25190c;
+    --color2: #4d481e;
+    --color3: #ff514a;
+    --color4: #ffae75;
+    --color5: #fffcb3;
+    --color6: #ffffff;
+}
+

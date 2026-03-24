@@ -91,6 +91,7 @@ function cargarDatos() {
 cargarDatos();
 mostrarCaja();
 mostrarVentas();
+calcularTotalVentas();
 
 // Registrar venta
 
@@ -129,6 +130,7 @@ function registrarVenta() {
   guardarDatos();
   mostrarInventario();
   mostrarVentas();
+  calcularTotalVentas();
 }
 
 // Iniciar caja
@@ -168,6 +170,7 @@ function cerrarDia() {
 
   guardarDatos();
   mostrarVentas();
+  calcularTotalVentas();
 }
 
 // Filtrar productos 
@@ -189,4 +192,12 @@ function filtrarProductos() {
 
       lista.appendChild(li);
     });
+}
+
+// Total de ventas
+function calcularTotalVentas() {
+  const total = appData.ventas.reduce((acc, v) => acc + v.total, 0);
+
+  document.getElementById("totalVentas").textContent =
+    `Total vendido hoy: $${total}`;
 }
