@@ -5,11 +5,152 @@
 /* ──────────────────────────────── */
 
 :root {
-    --color1: #25190c;
-    --color2: #4d481e;
-    --color3: #ff514a;
-    --color4: #ffae75;
-    --color5: #fffcb3;
-    --color6: #ffffff;
+  --color-primary: #2563EB;
+  --color-primary-light: #60A5FA;
+  --color-primary-dark: #1E40AF;
+
+  --color-success: #16A34A;
+  --color-danger: #DC2626;
+  --color-warning: #F59E0B;
+
+  --color-background: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-border: #E5E7EB;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+
+  --color-hover: #1D4ED8;
+  --color-active: #1E3A8A;
+
+  --color-shadow: rgba(0, 0, 0, 0.05);
+}
+
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+/* BASE */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+/* POS LAYOUT */
+.pos {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* HEADER */
+.pos-header {
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+/* CONTENIDO */
+.pos-content {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* SCREENS */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+/* BOTONES */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  background: var(--color-primary);
+  color: white;
+}
+
+/* VARIANTES */
+.btn-success {
+  background: var(--color-success);
+}
+
+.btn-danger {
+  background: var(--color-danger);
+}
+
+/* LISTAS */
+.lista {
+  margin-top: 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lista li {
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 6px var(--color-shadow);
+}
+
+/* NAV MOBILE */
+.pos-nav {
+  display: flex;
+  justify-content: space-around;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 8px 0;
+}
+
+.pos-nav button {
+  background: none;
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .pos {
+    flex-direction: row;
+  }
+
+  .pos-nav {
+    flex-direction: column;
+    width: 80px;
+    height: 100vh;
+    border-top: none;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .pos-content {
+    flex: 1;
+  }
 }
 

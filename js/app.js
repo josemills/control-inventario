@@ -201,3 +201,10 @@ function calcularTotalVentas() {
   document.getElementById("totalVentas").textContent =
     `Total vendido hoy: $${total}`;
 }
+// Funcion deTab
+function cambiarTab(tabId) {
+  const screens = document.querySelectorAll(".screen");
+  screens.forEach(s => s.classList.remove("active"));
+
+  document.getElementById(tabId).classList.add("active");
+}
