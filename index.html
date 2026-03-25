@@ -9,63 +9,60 @@
 
 <div class="pos">
 
-    <!-- HEADER -->
     <header class="pos-header">
         <h1>POS Inventario</h1>
     </header>
 
-    <!-- CONTENIDO -->
     <main class="pos-content">
 
-        <!-- INVENTARIO -->
-        <section id="inventario" class="screen active">
-            <h2>Inventario</h2>
-            <input type="text" id="buscarProducto" placeholder="Buscar producto...">
+        <!-- VENTA (pantalla principal) -->
+        <section id="venta" class="screen active">
+            <h2>💰 Venta</h2>
+
+            <input type="text" id="productoVenta" placeholder="Producto">
+            <input type="number" id="cantidadVenta" placeholder="Cantidad">
+
+            <button id="btnVender" class="btn btn-success">
+                Vender
+            </button>
+        </section>
+
+        <section id="inventario" class="screen">
+            <h2>📦 Inventario</h2>
+            <input type="text" id="buscarProducto" placeholder="Buscar...">
             <ul id="listaInventario" class="lista"></ul>
         </section>
 
-        <!-- VENTA -->
-        <section id="venta" class="screen">
-            <h2>Venta</h2>
-            <input type="text" id="productoVenta" placeholder="Producto">
-            <input type="number" id="cantidadVenta" placeholder="Cantidad">
-            <button id="btnVender" class="btn-success">Vender</button>
-        </section>
-
-        <!-- PRODUCTOS -->
         <section id="productos" class="screen">
-            <h2>Agregar Producto</h2>
+            <h2>➕ Producto</h2>
             <input type="text" id="nombre" placeholder="Nombre">
             <input type="number" id="cantidad" placeholder="Cantidad">
             <input type="number" id="precio" placeholder="Precio">
-            <button id="btnAgregar">Agregar</button>
+            <button id="btnAgregar" class="btn">Agregar</button>
         </section>
 
-        <!-- CAJA -->
         <section id="caja" class="screen">
-            <h2>Caja</h2>
+            <h2>🧾 Caja</h2>
             <input type="number" id="cajaInicial" placeholder="Caja Inicial">
-            <button id="btnCaja">Iniciar Día</button>
+            <button id="btnCaja" class="btn">Iniciar Día</button>
 
             <p id="cajaFinal"></p>
             <p id="totalVentas"></p>
 
-            <button class="btn-danger" onclick="cerrarDia()">Cerrar Día</button>
+            <button class="btn btn-danger" onclick="cerrarDia()">
+                Cerrar Día
+            </button>
         </section>
 
     </main>
 
-    <!-- NAV MOBILE -->
+    <!-- NAV ABAJO SIEMPRE -->
     <nav class="pos-nav">
-        <button onclick="cambiarTab('inventario')">📦</button>
         <button onclick="cambiarTab('venta')">💰</button>
+        <button onclick="cambiarTab('inventario')">📦</button>
         <button onclick="cambiarTab('productos')">➕</button>
         <button onclick="cambiarTab('caja')">🧾</button>
     </nav>
 
 </div>
-
-<script src="js/app.js"></script>
-
-</body>
 </html>
