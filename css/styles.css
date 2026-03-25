@@ -30,32 +30,28 @@
   box-sizing: border-box;
 }
 
-/* 🔥 ESCALA GLOBAL (CLAVE POS) */
+/* 🔥 ESCALA GLOBAL */
 html {
   font-size: 18px;
+  height: 100%;
 }
 
 /* BASE */
 body {
   margin: 0;
+  height: 100%;
   font-family: Arial, sans-serif;
   background: var(--color-background);
   color: var(--color-text-primary);
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
-/* APP CONTENEDOR */
+/* 🔥 POS FULLSCREEN */
 .pos {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
-  /* 🔥 efecto app en desktop */
-  max-width: 500px;
-  margin: auto;
+  width: 100%;
   background: var(--color-surface);
-  box-shadow: 0 0 20px var(--color-shadow);
 }
 
 /* HEADER */
@@ -75,6 +71,7 @@ body {
 .pos-content {
   flex: 1;
   padding: 25px;
+  width: 100%;
 }
 
 /* PANTALLAS */
@@ -92,7 +89,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* INPUTS */
+/* INPUTS GRANDES */
 input {
   width: 100%;
   padding: 20px;
@@ -107,7 +104,7 @@ input:focus {
   border-color: var(--color-primary);
 }
 
-/* BOTONES BASE */
+/* BOTONES */
 button {
   cursor: pointer;
 }
@@ -166,7 +163,7 @@ button {
   box-shadow: 0 2px 6px var(--color-shadow);
 }
 
-/* NAV POS (ABAJO SIEMPRE) */
+/* 🔥 NAV INFERIOR FIJO */
 .pos-nav {
   display: flex;
   justify-content: space-around;
@@ -185,14 +182,13 @@ button {
   color: var(--color-primary);
 }
 
-/* HOVER (desktop) */
-.pos-nav button:hover {
-  color: var(--color-primary-dark);
+.pos-nav button:active {
+  transform: scale(0.9);
 }
 
-/* TABLET / DESKTOP */
-@media (min-width: 768px) {
-  .pos {
-    max-width: 600px;
+/* 💻 AJUSTE DESKTOP */
+@media (min-width: 1024px) {
+  .pos-content {
+    padding: 40px 80px;
   }
 }
