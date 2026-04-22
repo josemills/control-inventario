@@ -40,6 +40,44 @@ document.addEventListener("DOMContentLoaded", () => {
   calcularTotalVentas();
 
   // ==========================
+  // AJUSTE DE STOCK (NUEVO)
+  // ==========================
+
+  function ajustarStock(index, cantidad) {
+    const producto = appData.inventario[index];
+    if (!producto) return;
+
+    producto.cantidad += cantidad;
+
+    if (producto.cantidad < 0) {
+      producto.cantidad = 0;
+    }
+
+    guardarDatos();
+    mostrarInventario();
+  }
+
+  window.sumarStock = function(index) {
+    const input = document.getElementById(`ajuste-${index}`);
+    const valor = Number(input.value);
+
+    if (!valor || valor <= 0) return;
+
+    ajustarStock(index, valor);
+    input.value = "";
+  };
+
+  window.restarStock = function(index) {
+    const input = document.getElementById(`ajuste-${index}`);
+    const valor = Number(input.value);
+
+    if (!valor || valor <= 0) return;
+
+    ajustarStock(index, -valor);
+    input.value = "";
+  };
+
+  // ==========================
 
   function agregarProducto() {
     const nombre = document.getElementById("nombre").value.trim();
@@ -77,6 +115,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>${p.nombre}</strong>
         <p>Cantidad: ${p.cantidad}</p>
         <p>Precio: $${p.precio}</p>
+
+        <input type="number" id="ajuste-${index}" placeholder="Cantidad" />
+
+        <button onclick="sumarStock(${index})">➕</button>
+        <button onclick="restarStock(${index})">➖</button>
+
         <button onclick="eliminarProducto(${index})">❌</button>
       `;
 
@@ -189,6 +233,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <strong>${p.nombre}</strong>
           <p>Cantidad: ${p.cantidad}</p>
           <p>Precio: $${p.precio}</p>
+
+          <input type="number" id="ajuste-${index}" placeholder="Cantidad" />
+
+          <button onclick="sumarStock(${index})">➕</button>
+          <button onclick="restarStock(${index})">➖</button>
+
           <button onclick="eliminarProducto(${index})">❌</button>
         `;
 
